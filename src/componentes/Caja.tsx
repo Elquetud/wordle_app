@@ -1,7 +1,13 @@
 import React from 'react'
+import {cajastatus} from './Tipos'
 
-const Caja = () => {
-    
+interface cajaProps{
+    value:string;
+    stauts:cajastatus;
+}
+
+const Caja = ({value,stauts}:cajaProps) => {
+   
   return (
     <div>Caja</div>
   )
