@@ -10,6 +10,7 @@ const Caja = ({value,stauts}:cajaProps) => {
    
   return (
     <div>Caja</div>
+    
   )
 
 }
