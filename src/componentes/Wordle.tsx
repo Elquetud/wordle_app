@@ -1,9 +1,14 @@
 import React from 'react'
+import Caja from './Caja';
 
 export const Wordle = () => {
     
   return (
-    <div>Hola wordle</div>
+    
+    <div>
+      <Caja valor='a' estado='presente'/>
+      
+    </div>
     
   )
 

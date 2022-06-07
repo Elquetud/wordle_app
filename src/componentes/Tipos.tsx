@@ -1,4 +1,4 @@
-export type cajastatus = "ausente" | "presente" | "correcto" | "vacío" | "editar";
+export type cajastatus = "ausente" | "presente" | "correcto" | "vacio" | "editar";
 
 export const enum GameStatus {
   jugando,
