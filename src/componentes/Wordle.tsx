@@ -7,7 +7,9 @@ export const Wordle = () => {
     
     <div>
       <Caja valor='a' estado='presente'/>
-      
+      <Caja valor='b' estado='ausente'/>
+          
+
     </div>
     
   )

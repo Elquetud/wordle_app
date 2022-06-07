@@ -1,6 +1,10 @@
-import classNames from 'classnames';
 import React from 'react'
 import {cajastatus} from './Tipos'
+
+import styles from "./caja.module.scss"
+import classNames from "classnames/bind"
+
+const classes = classNames.bind(styles);
 
 interface cajaProps{
     valor:string;
@@ -9,7 +13,7 @@ interface cajaProps{
 
 const Caja = ({valor,estado}:cajaProps) => {
   
-   const cajaestado = classNames({
+   const cajaestado = classes({
      correcto: estado ==='correcto',
      presente: estado === "presente",
      ausente:  estado === "ausente",
