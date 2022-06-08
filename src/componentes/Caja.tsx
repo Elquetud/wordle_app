@@ -23,7 +23,7 @@ const Caja = ({valor,estado}:cajaProps) => {
 
   return (
     <div className={cajaestado}>{valor}</div>
-
+    
   )
 
 }

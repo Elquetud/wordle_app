@@ -16,7 +16,7 @@ export const FilaCompletada = ({letra,solucion}:PropiedadesFila) => {
           return "presente";
         }
       } else {
-        return "vacio";
+        return "ausente";
       }
     }
 
