@@ -2,15 +2,15 @@ import Caja from './Caja'
 import { cajastatus } from "./Tipos";
 
 interface PropiedadesFila {
-   casilla:string,
+   letra:string,
    solucion:string
 }
 
-export const FilaCompletada = ({casilla,solucion}:PropiedadesFila) => {
+export const FilaCompletada = ({letra,solucion}:PropiedadesFila) => {
 
-   function comprobarLetra(letter: string, pos: number): cajastatus {
-      if (solucion.includes(letter)) {
-        if (solucion[pos] === letter) {
+   function comprobarLetra(letra: string, pos: number): cajastatus {
+      if (solucion.includes(letra)) {
+        if (solucion[pos] === letra) {
           return "correcto";
         } else {
           return "presente";
@@ -27,8 +27,8 @@ export const FilaCompletada = ({casilla,solucion}:PropiedadesFila) => {
           Array.from((Array(5))).map((_,i)=>(
              <Caja 
              key={i} 
-             valor={"a"} 
-             estado={'correcto'}
+             valor={letra[i]} 
+             estado={comprobarLetra(letra[i],i)}
              
              />      
 

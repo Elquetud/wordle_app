@@ -5,7 +5,7 @@ export const Wordle = () => {
   return (
   
     <div>
-        <FilaCompletada casilla="sabio"  solucion='break'/>
+        <FilaCompletada letra="sabio"  solucion='break'/>
 
     </div>
     
