@@ -1,17 +1,12 @@
-import React from 'react'
-import Caja from './Caja';
+import { FilaCompletada } from './FilaCompletada';
 
 export const Wordle = () => {
     
   return (
-    
+  
     <div>
-      <Caja valor='a' estado='presente'/>
-      <Caja valor='b' estado='ausente'/>
-      <Caja valor='c' estado='correcto'/>   
-      <Caja valor='c' estado='correcto'/>   
-      <Caja valor='c' estado='correcto'/>   
-      
+        <FilaCompletada casilla="sabio"  solucion='break'/>
+
     </div>
     
   )

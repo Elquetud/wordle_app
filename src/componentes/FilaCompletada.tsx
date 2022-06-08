@@ -1,4 +1,5 @@
-import React from 'react'
+import Caja from './Caja'
+
 
 interface PropiedadesFila {
    casilla:string,
@@ -8,7 +9,17 @@ interface PropiedadesFila {
 export const FilaCompletada = ({casilla,solucion}:PropiedadesFila) => {
 
   return (
-    <div>FilaCompletada</div>
+    <div>
+       {
+          Array.from((Array(5))).map((_,i)=>(
+             <Caja key={i} valor={"a"} estado={'correcto'} />      
+
+          ))
+
+
+       }
+
+    </div>
   
    )
 
