@@ -1,5 +1,6 @@
 import Caja from './Caja'
 import { cajastatus } from "./Tipos";
+import styles from "./fila.module.scss";
 
 interface PropiedadesFila {
    letra:string,
@@ -22,7 +23,8 @@ export const FilaCompletada = ({letra,solucion}:PropiedadesFila) => {
 
   return (
      
-    <div>
+    <div className={styles.row}>
+
        {
           Array.from((Array(5))).map((_,i)=>(
              <Caja 
