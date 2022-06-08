@@ -8,8 +8,10 @@ export const Wordle = () => {
     <div>
       <Caja valor='a' estado='presente'/>
       <Caja valor='b' estado='ausente'/>
-          
-
+      <Caja valor='c' estado='correcto'/>   
+      <Caja valor='c' estado='correcto'/>   
+      <Caja valor='c' estado='correcto'/>   
+      
     </div>
     
   )
