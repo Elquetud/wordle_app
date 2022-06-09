@@ -67,11 +67,18 @@ export const Wordle = () => {
     //ingresar letra al estado (Validacion de letra)
 
     if(teclas.includes(letter)){
+      onInput(letter);
       return;
 
     }
-    
 
+
+  }
+  
+  //registrar palabra
+  function onInput(letter:string){
+    const newletra = palabra+letter;
+    setCurrentPalabra(newletra);
   }
 
   return (
