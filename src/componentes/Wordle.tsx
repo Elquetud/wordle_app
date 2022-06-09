@@ -130,11 +130,16 @@ export const Wordle = () => {
         
         { gameStatus === GameStatus.gano ? null : <FilaActual letra={currentWord} />}
               
+        {
+          Array.from(Array(6 - turn)).map((_,i)=>(
+            <FilaVacia key={i}/>
+          ))
 
+        }
           
         
         
-        <FilaVacia />
+        
       
     </div>
     
