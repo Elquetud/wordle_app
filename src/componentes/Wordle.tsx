@@ -5,7 +5,7 @@ import { FilaCompletada } from './FilaCompletada';
 import FilaVacia from './FilaVacia';
 import {GameStatus} from './Tipos';
 
-const Teclas = [
+const teclas = [
   "Q",
   "W",
   "E",
@@ -31,6 +31,7 @@ const Teclas = [
   "V",
   "B",
   "N",
+  "Ñ",
   "M",
 ];
 
@@ -49,7 +50,7 @@ export const Wordle = () => {
   }, []);
 
   function teclaPresionada(event:KeyboardEvent){
-    const key = event.key.toUpperCase();
+    const letter = event.key.toUpperCase();
 
     if(event.key === 'Backspace' && currentPalabra.length >0){
       return;
@@ -63,9 +64,13 @@ export const Wordle = () => {
       return
     }
 
-    //ingresar letra al estado 
+    //ingresar letra al estado (Validacion de letra)
 
+    if(teclas.includes(letter)){
+      return;
 
+    }
+    
 
   }
 
