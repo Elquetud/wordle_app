@@ -127,7 +127,13 @@ export const Wordle = () => {
 
         }
 
-        <FilaActual letra={currentWord} />
+        
+        { gameStatus === GameStatus.gano ? null : <FilaActual letra={currentWord} />}
+              
+
+          
+        
+        
         <FilaVacia />
       
     </div>
