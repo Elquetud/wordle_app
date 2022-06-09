@@ -92,12 +92,16 @@ export const Wordle = () => {
   }
 
   function Enter(){
+    
+    console.log("Diste Enter");
+    
     if (currentWord === wordOfTheDay) {
       //ganó el usuario
       setCompletedWords([...completedWords, currentWord]);
       setGameStatus(GameStatus.gano);
       return;
     }
+    
 
 
   }
