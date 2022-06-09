@@ -64,6 +64,7 @@ export const Wordle = () => {
     }
 
     if(letter === 'ENTER'){
+      Enter();
       return;
     }
     if(currentWord.length >= 5){
@@ -90,6 +91,16 @@ export const Wordle = () => {
     setCurrentWord(newLetra);
   }
 
+  function Enter(){
+    if (currentWord === wordOfTheDay) {
+      //ganó el usuario
+      setCompletedWords([...completedWords, currentWord]);
+      setGameStatus(GameStatus.gano);
+      return;
+    }
+    
+
+  }
 
   return (
   
