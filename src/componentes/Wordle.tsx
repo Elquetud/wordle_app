@@ -48,7 +48,7 @@ export const Wordle = () => {
   useWindows('keydown', handleKeyDown);
 
   useEffect(() => {
-    setWordOfTheDay("letra");
+    setWordOfTheDay("LETRA");
 
     
   });
@@ -57,7 +57,11 @@ export const Wordle = () => {
     const letter = event.key.toUpperCase();
 
     //detectar teclas especiales
-    
+    if(gameStatus !== GameStatus.jugando){
+      return;
+    }
+
+
     if (letter === "BACKSPACE" && currentWord.length > 0) {
       Borrar();
       return;
