@@ -16,8 +16,6 @@ const FilaVacia = () => {
                 />      
    
             ))
-
-            
         }
 
     </div>

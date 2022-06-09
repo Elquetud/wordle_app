@@ -1,5 +1,5 @@
 import { useState,useEffect, KeyboardEvent } from 'react';
-import { useWindow } from '../hook/useWindow';
+import { useWindows } from '../hook/useWindows';
 import FilaActual from './FilaActual';
 import { FilaCompletada } from './FilaCompletada';
 import FilaVacia from './FilaVacia';
@@ -37,56 +37,45 @@ const teclas = [
 
 
 export const Wordle = () => {
-  const [palabra, setPalabra] = useState<string>("");
-  const [turno, setTurno] = useState<number>(1);
-  const [currentPalabra, setCurrentPalabra] = useState<string>("");
-  const [completedPalabra, setCompletedPalabra] = useState<string[]>([]);
-  const [estadoJuego, setestadoJuego] = useState<GameStatus>(GameStatus.jugando);
-  
-  useWindow('keydown',teclaPresionada);
+ 
+  const [wordOfTheDay, setWordOfTheDay] = useState<string>("");
+  const [turn, setTurn] = useState<number>(1);
+  const [currentWord, setCurrentWord] = useState<string>("");
+  const [completedWords, setCompletedWords] = useState<string[]>([]);
+  const [gameStatus, setGameStatus] = useState<GameStatus>(GameStatus.jugando);
+
+
+  useWindows('keydown', handleKeyDown);
 
   useEffect(() => {
-    setPalabra("break");
-  }, []);
+    setWordOfTheDay("letra");
 
-  function teclaPresionada(event:KeyboardEvent){
+    
+  });
+  
+  function handleKeyDown(event:KeyboardEvent){
     const letter = event.key.toUpperCase();
 
-    if(event.key === 'Backspace' && currentPalabra.length >0){
+    //detectar teclas especiales
+    if(event.key === 'BACKSPACE' && currentWord.length >0){
       return;
     }
-
-    if(event.key === 'Enter'){
+    if(event.key === 'ENTER'){
       return;
     }
-
-    if(currentPalabra.length >= 5){
-      return
-    }
-
-    //ingresar letra al estado (Validacion de letra)
-
-    if(teclas.includes(letter)){
-      onInput(letter);
+    if(currentWord.length >= 5){
       return;
-
     }
-
-
-  }
-  
-  //registrar palabra
-  function onInput(letter:string){
-    const newletra = palabra+letter;
-    setCurrentPalabra(newletra);
+    //ingresar la letra al estado
+    
   }
 
   return (
   
     <div>
-        <FilaCompletada letra="sabio"  solucion={palabra}/>
-        <FilaCompletada letra="saruk"  solucion='sabio'/>
-        <FilaActual letra='sab'/>
+        <FilaCompletada letra="sabio"  solucion={wordOfTheDay} />
+        <FilaCompletada letra="saruk"  solucion='letra'/>
+        <FilaActual letra="rocy"/>
         <FilaVacia />
         <FilaVacia />
         <FilaVacia />
