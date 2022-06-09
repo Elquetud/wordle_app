@@ -108,6 +108,12 @@ export const Wordle = () => {
       return;
     }
 
+    //validar si no existe la palabra
+
+    
+    setCompletedWords([...completedWords, currentWord]);
+    setTurn(turn + 1);
+    setCurrentWord("");
 
   }
 
