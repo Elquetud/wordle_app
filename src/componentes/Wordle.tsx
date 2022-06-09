@@ -36,7 +36,7 @@ const teclas = [
 ];
 
 
-export const Wordle = (props: { startingMinutes?: 111 | undefined; startingSeconds?: 0 | undefined; }) => {
+export const Wordle = (props: any) => {
  
   const [wordOfTheDay, setWordOfTheDay] = useState<string>("");
   const [turn, setTurn] = useState<number>(1);
@@ -48,12 +48,28 @@ export const Wordle = (props: { startingMinutes?: 111 | undefined; startingSecon
   const [mins, setMinutes] = useState(startingMinutes);
   const [secs, setSeconds] = useState(startingSeconds);
  
+
   useWindows('keydown', handleKeyDown);
 
   useEffect(() => {
     setWordOfTheDay("GOLPE");
+    let sampleInterval = setInterval(() => {
+      if (secs > 0) {
+        setSeconds(secs - 1);
+      }
+      if (secs === 0) {
+        if (mins === 0) {
+          clearInterval(sampleInterval);
+        } else {
+          setMinutes(mins - 1);
+          setSeconds(59);
+        }
+      }
+    }, 1000);
 
-    
+    return () => {
+      clearInterval(sampleInterval);
+    };
   });
   //cuenta regresiva
   
