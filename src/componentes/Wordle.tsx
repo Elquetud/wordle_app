@@ -63,7 +63,7 @@ export const Wordle = () => {
       return;
     }
 
-    if(letter === 'ENTER'){
+    if(letter === 'ENTER' && currentWord.length ===5){
       Enter();
       return;
     }
@@ -98,7 +98,7 @@ export const Wordle = () => {
       setGameStatus(GameStatus.gano);
       return;
     }
-    
+
 
   }
 
