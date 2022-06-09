@@ -57,10 +57,13 @@ export const Wordle = () => {
     const letter = event.key.toUpperCase();
 
     //detectar teclas especiales
-    if(event.key === 'BACKSPACE' && currentWord.length >0){
+    
+    if (letter === "BACKSPACE" && currentWord.length > 0) {
+      Borrar();
       return;
     }
-    if(event.key === 'ENTER'){
+
+    if(letter === 'ENTER'){
       return;
     }
     if(currentWord.length >= 5){
@@ -69,16 +72,24 @@ export const Wordle = () => {
     //ingresar la letra al estado
     if(teclas.includes(letter)){
         
-      onInput(letter);  
+      Entrada(letter);  
       return;
     }
+
+    
   }
 
-  function onInput(letter:string){
+  function Entrada(letter:string){
     const newLetra = currentWord+letter;
     setCurrentWord(newLetra);
 
   }
+
+  function Borrar() {
+    const newLetra = currentWord.slice(0, -1);
+    setCurrentWord(newLetra);
+  }
+
 
   return (
   
