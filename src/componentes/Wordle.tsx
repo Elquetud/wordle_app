@@ -5,6 +5,36 @@ import { FilaCompletada } from './FilaCompletada';
 import FilaVacia from './FilaVacia';
 import {GameStatus} from './Tipos';
 
+const Teclas = [
+  "Q",
+  "W",
+  "E",
+  "R",
+  "T",
+  "Y",
+  "U",
+  "I",
+  "O",
+  "P",
+  "A",
+  "S",
+  "D",
+  "F",
+  "G",
+  "H",
+  "J",
+  "K",
+  "L",
+  "Z",
+  "X",
+  "C",
+  "V",
+  "B",
+  "N",
+  "M",
+];
+
+
 export const Wordle = () => {
   const [palabra, setPalabra] = useState<string>("");
   const [turno, setTurno] = useState<number>(1);
@@ -35,7 +65,7 @@ export const Wordle = () => {
 
     //ingresar letra al estado 
 
-    
+
 
   }
 
