@@ -1,4 +1,5 @@
-import { useState,useEffect } from 'react';
+import { useState,useEffect, KeyboardEvent } from 'react';
+import { useWindow } from '../hook/useWindow';
 import FilaActual from './FilaActual';
 import { FilaCompletada } from './FilaCompletada';
 import FilaVacia from './FilaVacia';
@@ -11,14 +12,20 @@ export const Wordle = () => {
   const [completedPalabra, setCompletedPalabra] = useState<string[]>([]);
   const [estadoJuego, setestadoJuego] = useState<GameStatus>(GameStatus.jugando);
   
+  useWindow('keydown',teclaPresionada);
+
   useEffect(() => {
     setPalabra("break");
   }, []);
 
+  function teclaPresionada(event:KeyboardEvent){
+    
+  }
+
   return (
   
     <div>
-        <FilaCompletada letra="sabio"  solucion='sabio'/>
+        <FilaCompletada letra="sabio"  solucion={palabra}/>
         <FilaCompletada letra="saruk"  solucion='sabio'/>
         <FilaActual letra='sab'/>
         <FilaVacia />
