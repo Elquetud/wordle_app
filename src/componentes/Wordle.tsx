@@ -110,7 +110,7 @@ export const Wordle = () => {
 
     //validar si no existe la palabra
 
-    
+
     setCompletedWords([...completedWords, currentWord]);
     setTurn(turn + 1);
     setCurrentWord("");
@@ -120,12 +120,16 @@ export const Wordle = () => {
   return (
   
     <div>
-        <FilaCompletada letra="sabio"  solucion={wordOfTheDay} />
-        <FilaCompletada letra="saruk"  solucion='letra'/>
+        {
+          completedWords.map((word,i)=>(
+            <FilaCompletada letra={word}  solucion={wordOfTheDay} />
+          ))
+
+        }
+
         <FilaActual letra={currentWord} />
         <FilaVacia />
-        <FilaVacia />
-        <FilaVacia />
+      
     </div>
     
   )
