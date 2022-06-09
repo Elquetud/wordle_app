@@ -101,7 +101,12 @@ export const Wordle = () => {
       setGameStatus(GameStatus.gano);
       return;
     }
-    
+    if (turn === 6) {
+      //perdió el usuario
+      setCompletedWords([...completedWords, currentWord]);
+      setGameStatus(GameStatus.perdio);
+      return;
+    }
 
 
   }
