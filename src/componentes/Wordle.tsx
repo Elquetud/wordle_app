@@ -19,7 +19,24 @@ export const Wordle = () => {
   }, []);
 
   function teclaPresionada(event:KeyboardEvent){
+    const key = event.key.toUpperCase();
+
+    if(event.key === 'Backspace' && currentPalabra.length >0){
+      return;
+    }
+
+    if(event.key === 'Enter'){
+      return;
+    }
+
+    if(currentPalabra.length >= 5){
+      return
+    }
+
+    //ingresar letra al estado 
+
     
+
   }
 
   return (
