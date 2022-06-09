@@ -67,7 +67,7 @@ export const Wordle = () => {
       return;
     }
 
-    if(letter === 'ENTER' && currentWord.length ===5){
+    if(letter === 'ENTER' && currentWord.length ===5 && turn<=6){
       Enter();
       return;
     }
@@ -132,8 +132,11 @@ export const Wordle = () => {
         }
 
         
-        { gameStatus === GameStatus.gano ? null : <FilaActual letra={currentWord} />}
-              
+        { gameStatus === GameStatus.jugando ? (
+        
+        <FilaActual letra={currentWord} />) : null}
+
+
         {
           Array.from(Array(6 - turn)).map((_,i)=>(
             <FilaVacia key={i}/>
