@@ -36,7 +36,7 @@ const teclas = [
 ];
 
 
-export const Wordle = () => {
+export const Wordle = (props: { startingMinutes?: 111 | undefined; startingSeconds?: 0 | undefined; }) => {
  
   const [wordOfTheDay, setWordOfTheDay] = useState<string>("");
   const [turn, setTurn] = useState<number>(1);
@@ -44,17 +44,25 @@ export const Wordle = () => {
   const [completedWords, setCompletedWords] = useState<string[]>([]);
   const [gameStatus, setGameStatus] = useState<GameStatus>(GameStatus.jugando);
 
-
+  const { startingMinutes = 111, startingSeconds = 0 } = props;
+  const [mins, setMinutes] = useState(startingMinutes);
+  const [secs, setSeconds] = useState(startingSeconds);
+ 
   useWindows('keydown', handleKeyDown);
 
   useEffect(() => {
-    setWordOfTheDay("LETRA");
+    setWordOfTheDay("GOLPE");
 
     
   });
+  //cuenta regresiva
+  
   
   function handleKeyDown(event:KeyboardEvent){
     const letter = event.key.toUpperCase();
+
+    
+    
 
     //detectar teclas especiales
     if(gameStatus !== GameStatus.jugando){
