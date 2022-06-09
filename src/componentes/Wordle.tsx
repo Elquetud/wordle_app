@@ -67,7 +67,17 @@ export const Wordle = () => {
       return;
     }
     //ingresar la letra al estado
-    
+    if(teclas.includes(letter)){
+        
+      onInput(letter);  
+      return;
+    }
+  }
+
+  function onInput(letter:string){
+    const newLetra = currentWord+letter;
+    setCurrentWord(newLetra);
+
   }
 
   return (
@@ -75,7 +85,7 @@ export const Wordle = () => {
     <div>
         <FilaCompletada letra="sabio"  solucion={wordOfTheDay} />
         <FilaCompletada letra="saruk"  solucion='letra'/>
-        <FilaActual letra="rocy"/>
+        <FilaActual letra={currentWord} />
         <FilaVacia />
         <FilaVacia />
         <FilaVacia />
