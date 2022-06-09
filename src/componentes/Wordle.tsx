@@ -44,7 +44,7 @@ export const Wordle = (props: any) => {
   const [completedWords, setCompletedWords] = useState<string[]>([]);
   const [gameStatus, setGameStatus] = useState<GameStatus>(GameStatus.jugando);
 
-  const { startingMinutes = 111, startingSeconds = 0 } = props;
+  const { startingMinutes = 5, startingSeconds = 0 } = props;
   const [mins, setMinutes] = useState(startingMinutes);
   const [secs, setSeconds] = useState(startingSeconds);
  
@@ -73,7 +73,9 @@ export const Wordle = (props: any) => {
   });
   //cuenta regresiva
   
-  
+  console.log(mins);
+
+
   function handleKeyDown(event:KeyboardEvent){
     const letter = event.key.toUpperCase();
 
@@ -127,6 +129,17 @@ export const Wordle = (props: any) => {
       //ganó el usuario
       setCompletedWords([...completedWords, currentWord]);
       setGameStatus(GameStatus.gano);
+      
+      if(mins === 4){
+        alert("Bien");
+      }
+      if(mins === 3){
+        alert("Excelente");
+      }
+      if(mins <= 2){
+        alert("Asombroso");
+      }
+
       return;
     }
     if (turn === 6) {
@@ -169,7 +182,14 @@ export const Wordle = (props: any) => {
         }
           
         
-        
+          <div>
+        {!(mins && secs) ? "" : (
+        <h1>
+          {" "}
+          {mins}:{secs < 10 ? `0${secs}` : secs}
+        </h1>
+        )}
+        </div>
         
       
     </div>
